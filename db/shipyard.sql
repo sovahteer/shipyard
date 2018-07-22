@@ -1,4 +1,4 @@
-DROP TABLE ships;
+DROP TABLE ships CASCADE;
 DROP TABLE captains;
 
 CREATE TABLE ships (
@@ -12,5 +12,5 @@ CREATE TABLE captains (
     id SERIAL8 PRIMARY KEY,
     first_name VARCHAR (255),
     last_name VARCHAR (255),
-    ship_id INT4 REFERENCES ships(id)
+    ship_id INT8 REFERENCES ships(id)
 );
