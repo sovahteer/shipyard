@@ -1,0 +1,30 @@
+<h2>Edit <%= @ship.model %></h2>
+<form method="POST" action="/ships/<%= @ship.id %>">
+  <div class="form-wrapper">
+    
+    <div class="form-el">
+      <label for="model">MODEL:</label>
+      <input type="text" name="model" id="model" value="<%= @ship.model %>"/>
+    </div>
+
+    <div class="form-el">
+      <label for="class">CLASS:</label>
+      <input type="text" name="class" id="class" value="<%= @ship.class%>"/>
+    </div>
+
+    <div class="form-el">
+      <label for="arrival_date">RECEIVED ON:</label>
+      <input type="text" name="arrival_date" id="arrival_date" value="<%= @ship.arrival_date %>"/>
+    </div>
+
+    <div class="form-el">
+      <label for="sales_status">STATUS:</label>
+      <input type="text" name="sales_status" id="sales_status" value="<%= @ship.sales_status %>"/>
+    </div>
+
+    <div class="form-el">
+      <input type="submit" value="Apply Changes"/>
+    </div>
+
+  </div>
+</form>

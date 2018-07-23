@@ -17,14 +17,14 @@ captain2.save
 ship1 = Ship.new({
     'model' => 'YT-1300',
     'class' => 'LIGHT FREIGHTER',
-    'arrival_date' => 'RECEIVED ON (arrival_date)',
+    'arrival_date' => '(DATE)',
     'sales_status' => 'FAULTY REVERSE POWER FLUX COUPLING, REQUIRES REPLACEMENT',
     'captain_id' => captain1.id
 })
 ship2 = Ship.new ({
     'model' => 'HWK-290',
     'class' => 'COURIER',
-    'arrival_date' => 'RECEIVED ON (DATE)',
+    'arrival_date' => '(DATE)',
     'sales_status' => 'SOLD',
     'captain_id' => captain2.id
 })

@@ -1,0 +1,8 @@
+<h2><%= @ship.model%></h2>
+
+<p>CLASS: <%= @ship.class%></p>
+<p>RECEIVED ON: <%= @ship.arrival_date%></p>
+<p>STATUS: <%= @ship.sales_status%></p>
+
+<a href="/ships/<%= @ship.id %>/edit">Edit</a>
+<form action="/ships/<%= @ship.id %>/delete" method="POST"><input type="submit" value="Delete"></form>

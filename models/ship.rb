@@ -16,10 +16,10 @@ class Ship
     end
 
     def save()
-        sql = "INSERT INTO ships ( model, class, arrival_date, sales_status, captain_id ) 
-               VALUES ( $1, $2, $3, $4, $5 )
+        sql = "INSERT INTO ships ( model, class, arrival_date, sales_status ) 
+               VALUES ( $1, $2, $3, $4 )
                RETURNING id"
-        values = [@model, @class, @arrival_date, @sales_status, @captain_id]
+        values = [@model, @class, @arrival_date, @sales_status]
         result = SqlRunner.run(sql, values)
         id = result.first['id']
         @id = id

@@ -1,0 +1,31 @@
+<h2>Add a new ship</h2>
+
+<form method="POST" action="/ships">
+  <div class="form-wrapper">
+    
+    <div class="form-el">
+      <label for="Model">MODEL: </label>
+      <input type="text" name="model" id="model"/>
+    </div>
+
+    <div class="form-el">
+      <label for="class">CLASS: </label>
+      <input type="text" name="class" id="class"/>
+    </div>
+
+    <div arrival_date="form-el">
+      <label for="arrival_date">RECEIVED ON: </label>
+      <input type="text" name="arrival_date" id="arrival_date"/>
+    </div>
+
+    <div sales_status="form-el">
+      <label for="sales_status">STATUS: </label>
+      <input type="text" name="sales_status" id="sales_status"/>
+    </div>
+
+    <div class="form-el">
+      <input type="submit" value="Add Ship"/>
+    </div>
+
+  </div>
+</form>
