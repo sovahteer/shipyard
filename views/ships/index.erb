@@ -1,0 +1,14 @@
+<h1>OREK DRIVE YARDS Inc</h1>
+
+<div id="ship-wrapper">
+    <% for ship in @ships %>
+
+    <div class="ship">
+        <h3><a"href=/ships/<%= ship.id %>"><%= ship.model%></a></h3>
+        <p>class: <%= ship.class %></p>
+        <p>Status: <%= ship.sales_status %></p>
+        <p>Received on: <%= ship.date%></p>
+    </div>
+    
+    <% end %>
+</div>
