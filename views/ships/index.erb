@@ -8,6 +8,14 @@
         <p>STATUS: <%= ship.sales_status %></p>
         <p>RECEIVED ON: <%= ship.arrival_date%></p>
     </div>
+
+    <p> <a href="/ships/<%= ship.id%>">Show Details</a></p>
     
     <% end %>
+
+    <a href="/ship/new">Add New Ship</a>
+    </br>
+    </br>
+    <a href="/">Go Home</a>
+
 </div>

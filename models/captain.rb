@@ -50,7 +50,7 @@ class Captain
         return captain_data.map { |captain| Captain.new(captain) }
       end
 
-    def self.find()
+    def self.find(id)
         sql = "SELECT * FROM captains
                WHERE id = $1"
         values = [id]

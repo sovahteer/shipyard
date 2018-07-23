@@ -1,32 +1,32 @@
 require 'sinatra'
-require 'sinatra/contrib/all'
+require 'sinatra/contrib/all' if development?
 require_relative '../models/captain'
 require_relative '../models/ship'
 also_reload('../models/*')
 
 get '/captains' do
     @captains = Captain.all
-    erb( :"captains/index" )
+    erb( :"/captains/index" )
 end
 
 get '/captains/new' do
-    erb( :new )
+    erb( :"/captains/new" )
 end
 
 post '/captains' do
     Captain.new(params).save
-    erb( :new )
+    erb( :"/captains/new" )
     redirect to '/captains'
 end
 
 get '/captains/:id' do
     @captain = Captain.find(params['id'])
-    erb( :show )
+    erb( :"/captains/show" )
 end
 
 get '/captains/:id/edit' do
     @captain = Captain.find(params['id'])
-    erb( :edit )
+    erb( :"/captains/edit" )
 end
 
 post 'captains/:id' do

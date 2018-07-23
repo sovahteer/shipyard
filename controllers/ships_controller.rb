@@ -1,5 +1,5 @@
 require 'sinatra'
-require 'sinatra/contrib/all'
+require 'sinatra/contrib/all' if development?
 require_relative '../models/ship'
 require_relative '../models/captain'
 also_reload '../models/*'

@@ -31,10 +31,10 @@ class Ship
     end
 
     def update()
-        sql = "UPDATE ships SET ( model, class, arrival_date, sales_status, captain_id ) = 
-               ( $1, $2, $3, $4, $5 )
-               WHERE id = $6"
-    values = [@model, @class, @arrival_date, @repair_status, @captain_id, @id]
+        sql = "UPDATE ships SET ( model, class, arrival_date, sales_status ) = 
+               ( $1, $2, $3, $4 )
+               WHERE id = $5"
+    values = [@model, @class, @arrival_date, @sales_status, @id]
     SqlRunner.run(sql, values)
     end
 
