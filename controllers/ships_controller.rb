@@ -30,7 +30,7 @@ get '/ships/:id/edit' do
 end
 
 post '/ships/:id' do
-    ship = Ship.new(params)
+    ship = Ship.find(params['id'])
     ship.update
     redirect to "ships/#{params['id']}"
 end
