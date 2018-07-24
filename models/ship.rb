@@ -64,4 +64,10 @@ class Ship
         return ship
     end
 
+    def self.search(query)
+        sql = "SELECT * FROM ships
+               WHERE lower(ships.model) LIKE $1 OR lower(ships.class) LIKE $1"
+        values = ['%'+query.downcase+'%']
+        return SqlRunner.run(sql, values)
+    end
 end

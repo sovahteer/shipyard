@@ -62,4 +62,11 @@ class Captain
     def full_name
         return "#{@first_name.capitalize} #{@last_name.capitalize}"
     end
+
+    def self.search(query)
+        sql = "SELECT * FROM captains
+               WHERE lower(first_name || ' ' || last_name) LIKE $1 or lower(captains.first_name) LIKE $1 or lower(captains.last_name) LIKE $1"
+        values = ['%'+query.downcase+'%']
+        return SqlRunner.run(sql, values)
+    end
 end

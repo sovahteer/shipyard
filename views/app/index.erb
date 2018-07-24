@@ -3,28 +3,30 @@
 <p> <a href="/ships">View All Ships</a></p>
 <p> <a href="/captains">View All Captains</a><p>
 
+<form method="POST" action="/">
 <div class="search">
   <p>Search for...</p>
-  <%# <select name="search_cata" id="search_cata" value="--">
-    <option value="Ships">Ship</option>
-    <option value="Captains">Captain</option>
-  </select> %>
-  <input type="text" placeholder="Search...">
-  <button type="button">
+   <input id="query" name="query" type="text" placeholder="Search...">
+  <button type="submit">
     <i class="fa fa-search">...</i>
   </button>
 </div>
+</form>
 
 <div class="results">
     <% for ship in @ships %>
-        <% some stuff %>
-        <% else %>
-        <% some more stuff %>
+       <h1><%= ship['model'] %></h1>
+       <ul>
+          <li>Class: <%= ship['class'] %></li>
+          <li>Status: <%= ship['sales_status']%></li>
+          <li><a href="/ships/<%= ship['id'] %>">Show Details</a></li>
+        </ul>
     <% end %>
 
     <% for captain in @captains %>
-        <% some stuff %>
-        <% else %>
-        <% even more stuff %>
-    <%= end %>
+        <h1><%= captain['first_name']+' '+captain['last_name'] %></h1>
+       <ul>
+          <li><a href="/captains/<%= captain['id'] %>">Show Details</a></li>
+       </ul>
+    <% end %>
 </div>
