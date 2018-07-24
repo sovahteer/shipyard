@@ -12,7 +12,7 @@ class Ship
         @class = options['class']
         @arrival_date = options['arrival_date']
         @sales_status = options['sales_status']
-        @captain_id = options['captain_id'] ? options['captain_id'].to_i : nil
+        @captain_id = options['captain_id'] && options['captain_id'] != "--" ? options['captain_id'].to_i : nil
     end
 
     def save()

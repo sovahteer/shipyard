@@ -17,17 +17,22 @@
         <label for="arrival_date">Received On:</label>
         <input type="date" id="arrival_date" name="arrival_date"
                value="<%= @ship.arrival_date %>"
-               min="1900-01-01" max="2018-07-24" />
+               min="1900-01-01" max="<%= Date.today%>" />
       </div>
 
     <div class="form-el">
       <label for="sales_status">STATUS:</label>
-      <input type="text" name="sales_status" id="sales_status" value="<%= @ship.sales_status %>"/>
+      <select name="sales_status" id="sales_status" value="--">
+        <option value="For Sale">For Sale</option>
+        <option value="Requires Repairs">Requires Repairs</option>
+        <option value="Sold">Sold</option>
+      </select>
     </div>
 
     <div class="form-el">
       <label for="captain_id">Captain:</label>
       <select name="captain_id" id="Captain" selected="<% @ship.captain_id%>">
+      <option value="--">--</option>
         <% for captain in @captains %>
           <% if captain.id == @ship.captain_id %>
             <option value=<%= captain.id %> selected><%= captain.full_name %></option>
