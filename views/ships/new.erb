@@ -13,11 +13,13 @@
       <input type="text" name="class" id="class"/>
     </div>
 
-    <div arrival_date="form-el">
-      <label for="arrival_date">RECEIVED ON: </label>
-      <input type="text" name="arrival_date" id="arrival_date"/>
-    </div>
-
+      <div class="form-el">
+        <label for="arrival_date">Received On:</label>
+        <input type="date" id="arrival_date" name="arrival_date"
+               value="2018-07-24"
+               min="1900-01-01" max="2018-07-24" />
+      </div>
+      
     <div sales_status="form-el">
       <label for="sales_status">STATUS: </label>
       <input type="text" name="sales_status" id="sales_status"/>

@@ -11,7 +11,7 @@ CREATE TABLE ships (
     id SERIAL8 PRIMARY KEY,
     model VARCHAR (255),
     class VARCHAR  (255),
-    arrival_date VARCHAR (255),
+    arrival_date DATE,
     sales_status VARCHAR (255),
     captain_id INT8 REFERENCES captains(id)
 );

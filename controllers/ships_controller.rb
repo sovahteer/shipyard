@@ -6,27 +6,27 @@ also_reload '../models/*'
 
 get '/ships' do
     @ships = Ship.all
-    erb( :"ships/index" )
+    erb( :"/ships/index" )
 end
 
 get '/ships/new' do
-    erb( :"ships/new" )
+    erb( :"/ships/new" )
 end
 
 post '/ships' do
     Ship.new(params).save
-    erb( :"ships/new" )
+    erb( :"/ships/new" )
     redirect to '/ships'
 end
 
 get '/ships/:id' do
     @ship = Ship.find(params['id'])
-    erb( :"ships/show" )
+    erb( :"/ships/show" )
 end
 
 get '/ships/:id/edit' do
     @ship = Ship.find(params['id'])
-    erb( :"ships/edit" )
+    erb( :"/ships/edit" )
 end
 
 post '/ships/:id' do

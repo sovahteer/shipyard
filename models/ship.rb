@@ -12,14 +12,14 @@ class Ship
         @class = options['class']
         @arrival_date = options['arrival_date']
         @sales_status = options['sales_status']
-        @captain_id = options['captain_id'].to_i
+        @captain_id = options['captain_id'] ? options['captain_id'].to_i : nil
     end
 
     def save()
-        sql = "INSERT INTO ships ( model, class, arrival_date, sales_status ) 
-               VALUES ( $1, $2, $3, $4 )
+        sql = "INSERT INTO ships ( model, class, arrival_date, sales_status, captain_id ) 
+               VALUES ( $1, $2, $3, $4, $5 )
                RETURNING id"
-        values = [@model, @class, @arrival_date, @sales_status]
+        values = [@model, @class, @arrival_date, @sales_status, @captain_id]
         result = SqlRunner.run(sql, values)
         id = result.first['id']
         @id = id
@@ -31,10 +31,10 @@ class Ship
     end
 
     def update()
-        sql = "UPDATE ships SET ( model, class, arrival_date, sales_status ) = 
-               ( $1, $2, $3, $4 )
-               WHERE id = $5"
-    values = [@model, @class, @arrival_date, @sales_status, @id]
+        sql = "UPDATE ships SET ( model, class, arrival_date, sales_status, captain_id ) = 
+               ( $1, $2, $3, $4, $5)
+               WHERE id = $6"
+    values = [@model, @class, @arrival_date, @sales_status, @captain_id, @id]
     SqlRunner.run(sql, values)
     end
 

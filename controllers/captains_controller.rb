@@ -29,14 +29,14 @@ get '/captains/:id/edit' do
     erb( :"/captains/edit" )
 end
 
-post 'captains/:id' do
+post '/captains/:id' do
     captain = Captain.new(params)
-    Captain.update
+    captain.update
     redirect to "captains/#{params['id']}"
 end
 
-post 'captains/delete/:id' do
+post '/captains/:id/delete' do
     captain = Captain.find(params['id'])
-    Captain.delete
+    captain.delete
     redirect to '/captains'
 end
