@@ -4,7 +4,7 @@
     <% for captain in @captains %>
 
     <div class="captain">
-        <p>NAME: <a "href=/captains/<%= captain.id %>"><%= captain.full_name%></a></p>
+        <h2><a "href=/captains/<%= captain.id %>"><%= captain.full_name%></a></h2>
     </div>
 
     <p><a href="/captains/<%= captain.id%>">Show Details</a></p>

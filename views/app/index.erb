@@ -4,8 +4,27 @@
 <p> <a href="/captains">View All Captains</a><p>
 
 <div class="search">
-  <input type="text" placeholder="Search..">
+  <p>Search for...</p>
+  <%# <select name="search_cata" id="search_cata" value="--">
+    <option value="Ships">Ship</option>
+    <option value="Captains">Captain</option>
+  </select> %>
+  <input type="text" placeholder="Search...">
   <button type="button">
     <i class="fa fa-search">...</i>
   </button>
+</div>
+
+<div class="results">
+    <% for ship in @ships %>
+        <% some stuff %>
+        <% else %>
+        <% some more stuff %>
+    <% end %>
+
+    <% for captain in @captains %>
+        <% some stuff %>
+        <% else %>
+        <% even more stuff %>
+    <%= end %>
 </div>

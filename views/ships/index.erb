@@ -4,7 +4,7 @@
     <% for ship in @ships %>
 
     <div class="ship">
-        <h3><a"href=/ships/<%= ship.id %>"><%= ship.model%></a></h3>
+        <h2><a"href=/ships/<%= ship.id %>"><%= ship.model%></a></h2>
         <p>STATUS: <%= ship.sales_status %></p>
         <p>RECEIVED ON: <%= ship.arrival_date%></p>
     </div>

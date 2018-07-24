@@ -7,3 +7,4 @@ also_reload 'models/*'
 get '/' do 
     erb ( :"app/index" )
 end
+
