@@ -19,11 +19,23 @@
                value="<%= @ship.arrival_date %>"
                min="1900-01-01" max="2018-07-24" />
       </div>
-      
 
     <div class="form-el">
       <label for="sales_status">STATUS:</label>
       <input type="text" name="sales_status" id="sales_status" value="<%= @ship.sales_status %>"/>
+    </div>
+
+    <div class="form-el">
+      <label for="captain_id">Captain:</label>
+      <select name="captain_id" id="Captain" selected="<% @ship.captain_id%>">
+        <% for captain in @captains %>
+          <% if captain.id == @ship.captain_id %>
+            <option value=<%= captain.id %> selected><%= captain.full_name %></option>
+            <% else %>
+            <option value=<%= captain.id%>><%= captain.full_name %></option>
+          <% end %>
+        <% end %>
+      </select>
     </div>
 
     <div class="form-el">
