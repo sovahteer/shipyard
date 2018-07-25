@@ -15,6 +15,23 @@
     <div class="form-el">
       <label for="role">Role:</label>
       <input type="text" name="role" id="role" value="<%= @crew.role %>"/>
+
+     <div class="form-el">
+      <label for="ship_id">Assigned to:</label>
+      <% if @crew.ship_id %>
+        <select name="ship_id" id="ship_id" value="<%= @crew.ship_id %>">
+      <% else %>
+        <select name="ship_id" id="ship_id">
+      <% end %>
+      <option value="--">--</option>
+        <% for ship in @ships %>
+          <option value=<%= ship.id %> <%= ship.id == @crew.ship_id ? "selected" : "" %>><%= ship.ship_name %></option>
+        <% end %>
+      </select>
+      <% if @crew.captain_id %>
+      <input type="hidden" id="captain_id" name="captain_id" value="@crew.captain_id"/>
+      <% end %>
+    </div>
     </br>
     <div class="form-el">
       <input type="submit" value="Apply Changes"/>

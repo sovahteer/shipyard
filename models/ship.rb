@@ -14,6 +14,7 @@ class Ship
         @arrival_date = options['arrival_date']
         @sales_status = options['sales_status']
         @captain_id = options['captain_id'] && options['captain_id'] != "--" ? options['captain_id'].to_i : nil
+        p @captain_id 
     end
 
     def save()
@@ -24,6 +25,14 @@ class Ship
         result = SqlRunner.run(sql, values)
         id = result.first['id']
         @id = id
+    end
+
+    def self.allWithCaptain()
+        sql = "SELECT * from ships
+               WHERE captain_id IS NOT null"
+        ship_data = SqlRunner.run(sql)
+        ships = map_items(ship_data)
+        return ships
     end
 
     def captain()
@@ -57,13 +66,11 @@ class Ship
       end
 
     def self.find(id)
-        p "Finding Ship"
         sql = "SELECT * FROM ships
                WHERE id = $1"
         values = [id]
         result = SqlRunner.run(sql, values).first
         ship = Ship.new(result)
-        p result
         return ship
     end
 

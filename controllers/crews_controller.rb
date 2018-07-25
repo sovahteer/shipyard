@@ -27,10 +27,15 @@ end
 
 get '/crews/:id/edit' do
     @crew = Crew.find(params['id'])
+    @ships = Ship.allWithCaptain()
     erb( :"/crews/edit" )
 end
 
 post '/crews/:id' do
+    if params['ship_id'] != '--'
+        ship = Ship.find(params['ship_id'])
+        params['captain_id'] = ship.captain.id
+    end
     crew = Crew.new(params)
     crew.update
     redirect to "crews/#{params['id']}"

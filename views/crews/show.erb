@@ -1,5 +1,18 @@
 <h2><%= @crew.full_name %></h2>
 
+<p>Assigned to: <% if @crew.ship_id %>
+                    <% @ship = @crew.ship %>
+                    <% if @ship.ship_name %>
+                        <%= @ship.ship_name %>
+                    <% else %>Nameless
+                    <% end %>
+                <% else %>None
+                <% end %>
+         </p>
+<p>Ship's Captain:  <% if @crew.captain_id %>
+                        <%= @crew.captain.full_name %>
+                    <% else %>None
+                    <% end %></p>
 <p>Role: <%= @crew.role %></p>
 
 <a href="/crews/<%= @crew.id %>/edit">Edit</a>

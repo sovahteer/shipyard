@@ -1,5 +1,8 @@
 <h2><%= @ship.ship_name%></h2>
-<p>CAPTAIN: <%= @captain_id %></p>
+<p>CAPTAIN: <% if @ship.captain_id %>
+                <%= @ship.captain.full_name %>
+                <% else %>None
+            <% end %></p>
 <p>MODEL: <%= @ship.model%></p>
 <p>CLASS: <%= @ship.class%></p>
 <p>RECEIVED ON: <%= @ship.arrival_date%></p>

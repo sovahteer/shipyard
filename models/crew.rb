@@ -27,12 +27,12 @@ class Crew
     end
 
     def captain()
-        captain = Captain.find(@captain.id)
+        captain = Captain.find(@captain_id)
         return captain
     end
 
     def ship()
-        ship = Ship.find(@captain.id)
+        ship = Ship.find(@ship_id)
         return ship
     end
 
