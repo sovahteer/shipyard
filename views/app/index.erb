@@ -32,8 +32,14 @@
     <% end %>
 
     <% for crew in @crews %>
-        <h1><%= crew['first_name']+' '+crew['last_name'] %></h1>
+       <% if crew['last_name'] %>
+       <h1><%= crew['first_name']+' '+crew['last_name'] %></h1>
+       <% else %>
+       <h1><%= crew['first_name'] %></h1>
+       <% end %>
         <ul>
+        <li>Role: <%= crew['role']%></li>
+        </br>
         <li><a href="/crews/<%= crew['id'] %>">Show Details</a></li>
         </ul>
     <% end %>

@@ -37,10 +37,10 @@ class Crew
     end
 
     def update()
-        sql = "UPDATE crews SET ( first_name, last_name, role, captain_id, @ship_id ) = 
+        sql = "UPDATE crews SET ( first_name, last_name, role, captain_id, ship_id ) = 
                ( $1, $2, $3, $4, $5)
                WHERE id = $6"
-    values = [@model, @class, @arrival_date, @sales_status, @captain_id, @id]
+    values = [@first_name, @last_name, @role, @captain_id, @ship_id, @id]
     SqlRunner.run(sql, values)
     end
 
@@ -59,7 +59,7 @@ class Crew
 
     def self.map_items(crew_data)
         return crew_data.map { |crew| Crew.new(crew) }
-      end
+    end
 
     def self.find(id)
         sql = "SELECT * FROM crews
@@ -71,12 +71,16 @@ class Crew
     end
 
     def full_name
-        return "#{@first_name.capitalize} #{@last_name.capitalize}"
+        if @last_name
+            return "#{@first_name.capitalize} #{@last_name.capitalize}"
+        else
+            return "#{@first_name.capitalize}"
+        end
     end
 
     def self.search(query)
         sql = "SELECT * FROM crews
-               WHERE lower(first_name || ' ' || last_name) LIKE $1 or lower(crews.first_name) LIKE $1 or lower(crews.last_name) or lower(crews.role) LIKE $1"
+               WHERE lower(first_name || ' ' || last_name) LIKE $1 or lower(crews.first_name) LIKE $1 or lower(crews.last_name) LIKE $1 or lower(crews.role) LIKE $1"
         values = ['%'+query.downcase+'%']
         return SqlRunner.run(sql, values)
     end

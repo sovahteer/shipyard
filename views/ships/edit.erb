@@ -2,35 +2,14 @@
 
 <form method="POST" action="/ships/<%= @ship.id %>">
   <div class="form-wrapper">
-    
+
     <div class="form-el">
-      <label for="model">MODEL:</label>
-      <input type="text" name="model" id="model" value="<%= @ship.model %>"/>
+      <label for="ship_name">Name: </label>
+      <input type="text" name="ship_name" id="ship_name" value="<%= @ship.ship_name %>"/>
     </div>
 
-    <div class="form-el">
-      <label for="class">CLASS:</label>
-      <input type="text" name="class" id="class" value="<%= @ship.class%>"/>
-    </div>
-
-    <div class="form-el">
-        <label for="arrival_date">Received On:</label>
-        <input type="date" id="arrival_date" name="arrival_date"
-               value="<%= @ship.arrival_date %>"
-               min="1900-01-01" max="<%= Date.today%>" />
-      </div>
-
-    <div class="form-el">
-      <label for="sales_status">STATUS:</label>
-      <select name="sales_status" id="sales_status" value="--">
-        <option value="For Sale">For Sale</option>
-        <option value="Requires Repairs">Requires Repairs</option>
-        <option value="Sold">Sold</option>
-      </select>
-    </div>
-
-    <div class="form-el">
-      <label for="captain_id">Captain:</label>
+     <div class="form-el">
+      <label for="captain_id">Captain: </label>
       <select name="captain_id" id="Captain" selected="<% @ship.captain_id%>">
       <option value="--">--</option>
         <% for captain in @captains %>
@@ -40,6 +19,32 @@
             <option value=<%= captain.id%>><%= captain.full_name %></option>
           <% end %>
         <% end %>
+      </select>
+    </div>
+    
+    <div class="form-el">
+      <label for="model">Model: </label>
+      <input type="text" name="model" id="model" value="<%= @ship.model %>"/>
+    </div>
+
+    <div class="form-el">
+      <label for="class">Class: </label>
+      <input type="text" name="class" id="class" value="<%= @ship.class%>"/>
+    </div>
+
+    <div class="form-el">
+        <label for="arrival_date">Received On: </label>
+        <input type="date" id="arrival_date" name="arrival_date"
+               value="<%= @ship.arrival_date %>"
+               min="1900-01-01" max="<%= Date.today%>" />
+      </div>
+
+    <div class="form-el">
+      <label for="sales_status">Status: </label>
+      <select name="sales_status" id="sales_status" value="--">
+        <option value="For Sale">For Sale</option>
+        <option value="Requires Repairs">Requires Repairs</option>
+        <option value="Sold">Sold</option>
       </select>
     </div>
 

@@ -32,12 +32,12 @@ end
 
 post '/crews/:id' do
     crew = Crew.new(params)
-    Crew.update
+    crew.update
     redirect to "crews/#{params['id']}"
 end
 
 post '/crews/:id/delete' do
     crew = Crew.find(params['id'])
-    Crew.delete
+    crew.delete
     redirect to '/crews'
 end

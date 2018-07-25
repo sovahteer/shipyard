@@ -11,6 +11,7 @@ CREATE TABLE captains (
 
 CREATE TABLE ships (
     id SERIAL8 PRIMARY KEY,
+    ship_name VARCHAR (255),    
     model VARCHAR (255),
     class VARCHAR  (255),
     arrival_date DATE,

@@ -16,17 +16,19 @@ captain1.save
 captain2.save
 
 ship1 = Ship.new({
+    'ship_name' => 'Millenium Falcon',
     'model' => 'YT-1300',
-    'class' => 'LIGHT FREIGHTER',
+    'class' => 'Light Freighter',
     'arrival_date' => '2018-07-22',
-    'sales_status' => 'REQUIRES REPAIR',
+    'sales_status' => 'Requires Repair',
     'captain_id' => captain1.id
 })
 ship2 = Ship.new ({
+    'ship_name' => 'Angel of Ciria',
     'model' => 'HWK-290',
-    'class' => 'COURIER',
+    'class' => 'Courier',
     'arrival_date' => '2018-07-22',
-    'sales_status' => 'SOLD',
+    'sales_status' => 'Sold',
     'captain_id' => captain2.id
 })
 
@@ -43,8 +45,8 @@ crew1 = Crew.new ({
 
 crew2 = Crew.new ({
     'first_name' => "Gar'venna",
-    'last_name' => nil,,
-    'role' => '"Emotional Support"',
+    'last_name' => nil,
+    'role' => 'Emotional Support',
     'captain_id' => captain2.id,
     'ship_id' => ship2.id
 
