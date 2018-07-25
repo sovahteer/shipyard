@@ -4,7 +4,11 @@
     <% for crew in @crews %>
 
     <div class="crew">
-        <h2><a "href=/cew/<%= crew.id %>"><%= crew.full_name%></a></h2>
+        <h2><a "href=/crew/<%= crew.id %>"><%= crew.full_name%></a></h2>
+        <p>Assigned to: <% if crew.ship_id %>
+                        <%= crew.ship.ship_name %>
+                    <% else %>None
+                    <% end %></p>
         <p>Role: <%= crew.role %></p>
     </div>
 
