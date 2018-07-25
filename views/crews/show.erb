@@ -1,0 +1,6 @@
+<h2><%= @crew.full_name%></h2>
+<a href="/crews/<%= @crew.id %>/edit">Edit</a>
+</br>
+</br>
+<form action="/crews/<%= @crew.id %>/delete" method="POST"><input type="submit" value="Delete"></form>
+<p><a href="/crews">Return</a></p>

@@ -2,6 +2,7 @@
 
 <p> <a href="/ships">View All Ships</a></p>
 <p> <a href="/captains">View All Captains</a><p>
+<p> <a href="/crews">View All Crews</a><p>
 
 <form method="POST" action="/">
 <div class="search">
@@ -28,5 +29,12 @@
        <ul>
           <li><a href="/captains/<%= captain['id'] %>">Show Details</a></li>
        </ul>
+    <% end %>
+
+    <% for crew in @crews %>
+        <h1><%= crew['first_name']+' '+crew['last_name'] %></h1>
+        <ul>
+        <li><a href="/crews/<%= crew['id'] %>">Show Details</a></li>
+        </ul>
     <% end %>
 </div>

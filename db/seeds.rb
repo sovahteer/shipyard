@@ -1,5 +1,6 @@
 require_relative '../models/ship'
 require_relative '../models/captain'
+require_relative '../models/crew'
 
 
 captain1 = Captain.new({
@@ -33,17 +34,20 @@ ship1.save
 ship2.save
 
 crew1 = Crew.new ({
-    'first_name' => 'Chewbacca'
-    'last_name' => ''
-    'role' => 'Co-Pilot'
-    'captain_id' => captain1.id
+    'first_name' => 'Chewbacca',
+    'last_name' => nil,
+    'role' => 'Co-Pilot',
+    'captain_id' => captain1.id,
     'ship_id' => ship1.id
 })
 
 crew2 = Crew.new ({
-    'first_name' => "Gar'venna"
-    'last_name' => 'Fuchknowes'
-    'role' => '"Emotional Support"'
+    'first_name' => "Gar'venna",
+    'last_name' => nil,,
+    'role' => '"Emotional Support"',
+    'captain_id' => captain2.id,
+    'ship_id' => ship2.id
+
 })
 
 crew1.save

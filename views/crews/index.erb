@@ -1,0 +1,19 @@
+<h1>OREK DRIVE YARDS Inc</h1>
+
+<div id="crew-wrapper">
+    <% for crew in @crews %>
+
+    <div class="crew">
+        <h2><a "href=/cew/<%= crew.id %>"><%= crew.full_name%></a></h2>
+    </div>
+
+    <p><a href="/crews/<%= crew.id%>">Show Details</a></p>
+    
+    <% end %>
+
+    <a href="/cews/new">Add New Crew Member</a>
+    </br>
+    </br>
+    <a href="/">Go Home</a>
+
+</div>
