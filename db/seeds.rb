@@ -31,3 +31,20 @@ ship2 = Ship.new ({
 
 ship1.save
 ship2.save
+
+crew1 = Crew.new ({
+    'first_name' => 'Chewbacca'
+    'last_name' => ''
+    'role' => 'Co-Pilot'
+    'captain_id' => captain1.id
+    'ship_id' => ship1.id
+})
+
+crew2 = Crew.new ({
+    'first_name' => "Gar'venna"
+    'last_name' => 'Fuchknowes'
+    'role' => '"Emotional Support"'
+})
+
+crew1.save
+crew2.save
