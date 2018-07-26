@@ -1,38 +1,25 @@
-<h2>Add a new ship</h2>
+<h2>Add A New Ship</h2>
 
 <form method="POST" action="/ships">
-  <div class="form-wrapper">
-    
-     <div class="form-el">
-      <label for="ship_name">NAME: </label>
-      <input type="text" name="ship_name" id="ship_name"/>
+  <div class="ship-new">
+      <ul class="cards">
+        <li class="card">
+          <ul>
+            <li><label for="ship_name">Name: </label>
+              <input type="text" name="ship_name" id="ship_name"/></li>
+            <li><label for="model">Model: </label>
+              <input type="text" name="model" id="model"/></li>
+            <li><label for="class">Class: </label>
+              <input type="text" name="class" id="class"/></li>
+            <li><label for="arrival_date">Received On:</label>
+              <input type="date" id="arrival_date" name="arrival_date"
+                value="<%= Date.today%>"
+                min="1900-01-01" max="<%= Date.today %>" /></li>
+            <li><label for="sales_status">Status: </label>
+              <input type="text" name="sales_status" id="sales_status"/></li>
+            <li><input name="buttom" type="submit" value="Add Ship"/></p></li>
+          </ul>
+        </li>
+      </ul>
     </div>
-
-    <div class="form-el">
-      <label for="model">MODEL: </label>
-      <input type="text" name="model" id="model"/>
-    </div>
-
-    <div class="form-el">
-      <label for="class">CLASS: </label>
-      <input type="text" name="class" id="class"/>
-    </div>
-
-      <div class="form-el">
-        <label for="arrival_date">Received On:</label>
-        <input type="date" id="arrival_date" name="arrival_date"
-               value="<%= Date.today%>"
-               min="1900-01-01" max="<%= Date.today %>" />
-      </div>
-
-    <div sales_status="form-el">
-      <label for="sales_status">STATUS: </label>
-      <input type="text" name="sales_status" id="sales_status"/>
-    </div>
-
-    <div class="form-el">
-      <input type="submit" value="Add Ship"/>
-    </div>
-
-  </div>
 </form>

@@ -1,22 +1,24 @@
-<div id="crew-wrapper">
-    <% for crew in @crews %>
-
-    <div class="crew">
-        <h2><a "href=/crew/<%= crew.id %>"><%= crew.full_name%></a></h2>
-        <p>Assigned to: <% if crew.ship_id %>
-                        <%= crew.ship.ship_name %>
-                    <% else %>None
-                    <% end %></p>
-        <p>Role: <%= crew.role %></p>
+<div class ="buttons">
+        <ul>
+            <li><a href="/crews/new">Add New Crewman</a></li>
+            <li><a href="/">Go Home</a></li>
     </div>
 
-    <p><a href="/crews/<%= crew.id%>">Show Details</a></p>
-    
-    <% end %>
 
-    <a href="/crews/new">Add New Crew Member</a>
-    </br>
-    </br>
-    <a href="/">Go Home</a>
-
+<div class="crew">
+    <ul class ="cards"> <% for crew in @crews %>
+        <li class="card">
+            <ul>
+                <li><img src="" alt="placeholder"></li>
+                <li><h2 "href=/crew/<%= crew.id %>"><%= crew.full_name%>    </h2></li>
+                <li>Assigned to: <% if crew.ship_id %>
+                        <%= crew.ship.ship_name %>
+                    <% else %>None
+                    <% end %></li>
+                <li>Role: <%= crew.role %></li>
+                <li><a href="/crews/<%= crew.id%>">Show Details</a></li>
+            </ul>
+        </li>
+    <% end %></ul>
+    </div>
 </div>

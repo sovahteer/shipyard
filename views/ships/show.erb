@@ -1,15 +1,21 @@
-<h2><%= @ship.ship_name%></h2>
-<p>CAPTAIN: <% if @ship.captain_id %>
-                <%= @ship.captain.full_name %>
-                <% else %>None
-            <% end %></p>
-<p>MODEL: <%= @ship.model%></p>
-<p>CLASS: <%= @ship.class%></p>
-<p>RECEIVED ON: <%= @ship.arrival_date%></p>
-<p>STATUS: <%= @ship.sales_status%></p>
-
-<a href="/ships/<%= @ship.id %>/edit">Edit</a>
-</br>
-</br>
-<form action="/ships/<%= @ship.id %>/delete" method="POST"><input type="submit" value="Delete"></form>
-<p><a href="/ships">Return</a></p>
+<div class="ship-show">
+    <ul class="cards">
+        <li class="card">
+            <ul>
+                <li><img src="" alt="placeholder"></li>
+                <li><h2><%= @ship.ship_name%></h2></li>
+                <li>CAPTAIN: <% if @ship.captain_id %>
+                    <%= @ship.captain.full_name %>
+                    <% else %>None
+                    <% end %></li>
+                <li>MODEL: <%= @ship.model%></li>
+                <li>CLASS: <%= @ship.class%></li>
+                <li>RECEIVED ON: <%= @ship.arrival_date%></li>
+                <li>STATUS: <%= @ship.sales_status%></li>
+                <li><a href="/ships/<%= @ship.id %>/edit">Edit</a></li>
+                <li><form action="/ships/<%= @ship.id %>/delete" method="POST"><input type="submit" value="Delete"></form></li>
+                <li><a href="/ships">Return</a></li>
+            </ul>
+        </li>
+    </ul>
+</div>

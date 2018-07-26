@@ -1,24 +1,19 @@
-<h2>Add a new Crew Member</h2>
+<h2>Add A New Crewman</h2>
 
-<form method="POST" action="/crews">
-  <div class="form-wrapper">
-    
-    <div class="form-el">
-      <label for="first-name">First Name: </label>
-      <input type="text" name="first_name" id="first_name"/>
+<form method="POST" action="/captains">
+  <div class="form-el">
+      <ul class="cards">
+        <li class="card">
+          <ul>
+            <li><label for="first_name">First Name: </label>
+              <input type="text" name="first_name" id="first_name"/></li>
+            <li><label for="last_name">Last Name: </label>
+              <input type="text" name="last_name" id="last_name"/></li>
+            <li><label for="role">Role: </label>
+              <input type="text" name="role" id="role"/></li>
+            <li><input name="buttom" type="submit" value="Add Crewman"/></p></li>
+          </ul>
+        </li>
+      </ul>
     </div>
-
-    <div class="form-el">
-      <label for="last-name">Last Name: </label>
-      <input type="text" name="last_name" id="last_name"/>
-    </div>
-    <div class="form=el">
-      <label for="role">Role: </label>
-      <input type="text" name="role" id="role">
-    </br>
-    <div class="form-el">
-      <input type="submit" value="Add Crew Member"/>
-    </div>
-
-  </div>
 </form>

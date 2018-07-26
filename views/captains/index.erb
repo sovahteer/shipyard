@@ -1,26 +1,27 @@
-<div id="captain-wrapper">
-    <% for captain in @captains %>
-
-    <div class="captain">
-        <h2><a "href=/captains/<%= captain.id %>"><%= captain.full_name%></a></h2>
-        <p>Ship: <% if captain.ship_id %>
-            <% @ship = captain.ship %>
-            <% if @ship.ship_name %>
-            <%= @ship.ship_name %>
-            <% else %>Nameless
-            <% end %>
-        <% else %>None
-        <% end %></p>
+<div class ="buttons">
+        <ul>
+            <li><a href="/captains/new">Add New Captain</a></li>
+            <li><a href="/">Go Home</a></li>
     </div>
-    
-    
-    <p><a href="/captains/<%= captain.id%>">Show Details</a></p>
-    
-    <% end %>
 
-    <a href="/captains/new">Add New Captain</a>
-    </br>
-    </br>
-    <a href="/">Go Home</a>
+<div class="captain">
+    <ul class="cards"><% for captain in @captains%>
+        <li class="card">
+            <ul>
+                <li><img src="" alt="placeholder"></li>
+                <li><h2 "href=/captains/<%= captain.id %>"><%= captain.full_name%></h2>
+                <li>Ship: <% if captain.ship_id %>
+                    <% @ship = captain.ship %>
+                    <% if @ship.ship_name %>
+                        <%= @ship.ship_name %>
+                    <% else %>Nameless
+                    <% end %>
+                    <% else %>None
+                    <% end %></li>
+                <li><a href="/captains/<%= captain.id%>">Show Details</a></li>
+            </ul>
+        </li>
+     <% end %></ul>
+</div>
 
 </div>

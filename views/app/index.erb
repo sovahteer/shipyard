@@ -1,50 +1,59 @@
-<div class="search-wrapper">
-<form method="POST" action="/">
-  <p>Search for...</p>
-   <input id="query" name="query" type="text" placeholder="Search...">
-  <button type="submit">
-    <i class="fa fa-search">...</i>
-  </button>
+<form id= "search-form" method="POST" action="/">
+   <div class="search">
+   <input id="query" name="query" class= "round" type="text" placeholder="Type something to search...">
+  <input type="submit" class="corner" value="">
 </div>
 </form>
 
 <div class="results">
-    <% for ship in @ships %>
-       <h1><%= ship['model'] %></h1>
-       <ul>
+    <ul class="cards"><% for ship in @ships %>
+      <li class="card">
+        <ul>
+          <li><img src="" alt="placeholder"></li>
+          <li><h2><%= ship['model'] %></h2></li>
           <li>Class: <%= ship['class'] %></li>
           <li>Status: <%= ship['sales_status']%></li>
           <li><a href="/ships/<%= ship['id'] %>">Show Details</a></li>
         </ul>
-    <% end %>
+      </li>
+     <% end %></ul>
+   
 
-    <% for captain in @captains %>
-      <h1><%= captain['first_name']+' '+captain['last_name'] %></h1>
-        <% @captain = Captain.find(captain['id']) %>
-      <ul>
-        <% if @captain.ship_id %>
-          <li>Ship: <%= @captain.ship.ship_name %></li>
-        <% end %>
-      </br>
-      <li><a href="/captains/<%= captain['id'] %>">Show Details</a></li>
-      </ul>
-<% end %>
+    
+      <ul class="cards"><% for captain in @captains %>
+        <li class="card">
+          <ul>
+            <li><img src="" alt="placeholder"></li>
+            <li><h2><%= captain['first_name']+' '+captain['last_name'] %></h2></li>
+                <% @captain = Captain.find(captain['id']) %>
+                <% if @captain.ship_id %>
+            <li>Ship: <%= @captain.ship.ship_name %></li>
+            <% end %>
+            <li><a href="/captains/<%= captain['id'] %>">Show Details</a></li> 
+          </ul>
+        </li>
+      <% end %></ul>
 
-    <% for crew in @crews %>
-       <% if crew['last_name'] %>
-       <h1><%= crew['first_name']+' '+crew['last_name'] %></h1>
-       <% else %>
-       <h1><%= crew['first_name'] %></h1>
-       <% end %>
-        <ul>
-        <li>Assigned to: <% if crew['ship_id'] %>
-                        <%= Ship.find(crew['ship_id']).ship_name %>
-                    <% else %>None
-                    <% end %></li>
-        </br>
-        <li>Role: <%= crew['role']%></li>
-        </br>
-        <li><a href="/crews/<%= crew['id'] %>">Show Details</a></li>
-        </ul>
-    <% end %>
+       <ul class="cards"><% for crew in @crews %>
+        <li class="card">
+          <ul>
+            <li><img src="" alt="placeholder"></li>
+            <li><% if crew['last_name'] %>
+              <h2><%= crew['first_name']+' '+crew['last_name'] %></h2>
+              <% else %>
+              <h2><%= crew['first_name'] %></h2>
+            <% end %>
+            </li>
+            <li>Assigned to: <% if crew['ship_id'] %>
+              <%= Ship.find(crew['ship_id']).ship_name %>
+              <% else %>None
+              <% end %>
+            </li>
+            <li>Role: <%= crew['role']%>
+            </li>
+            <li><a href="/crews/<%= crew['id'] %>">Show Details</a>
+            </li>
+         </ul>
+        </li>
+      <% end %></ul>
 </div>

@@ -1,15 +1,23 @@
-<div id="ship-wrapper">
-    <% for ship in @ships %>
-
-    <div class="ship">
-        <h2><a"href=/ships/<%= ship.id %>"><%= ship.ship_name%></a></h2>
-        <p>STATUS: <%= ship.sales_status %></p>
-        <p>RECEIVED ON: <%= ship.arrival_date%></p>
+<div class ="buttons">
+        <ul>
+            <li><a href="/ships/new">Add New Ship</a></li>
+            <li><a href="/">Go Home</a></li>
     </div>
 
-    <p> <a href="/ships/<%= ship.id%>">Show Details</a></p>
-    
-    <% end %>
+
+<div class="ship">
+        <ul class="cards"><% for ship in @ships %>
+            <li class="card">
+                <ul>
+                    <li><img src="" alt="placeholder"></li>
+                    <li><h2><a"href=/ships/<%= ship.id %>"><%= ship.ship_name%></a></h2></li>
+                    <li>STATUS: <%= ship.sales_status %></p></li>
+                    <li>RECEIVED ON: <%= ship.arrival_date%></p></li>
+                    <li><a href="/ships/<%= ship.id%>">Show Details</a></li>
+                </ul>
+            </li>
+        <% end %></ul>
+    </div>
 
     <a href="/ships/new">Add New Ship</a>
     </br>

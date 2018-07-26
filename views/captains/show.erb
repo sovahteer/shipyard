@@ -1,14 +1,21 @@
-<h2><%= @captain.full_name%></h2>
-<p>Ship: <% if @captain.ship_id %>
-            <% @ship = @captain.ship %>
-            <% if @ship.ship_name %>
-            <%= @ship.ship_name %>
-            <% else %>Nameless
-            <% end %>
-        <% else %>None
-        <% end %></p>
-<a href="/captains/<%= @captain.id %>/edit">Edit</a>
-</br>
-</br>
-<form action="/captains/<%= @captain.id %>/delete" method="POST"><input type="submit" value="Delete"></form>
-<p><a href="/captains">Return</a></p>
+<div class="captain-show">
+    <ul class="cards">
+        <li class="card">
+            <ul>
+                <li><img src="" alt="placeholder">
+                <li><h2><%= @captain.full_name%></h2></li>
+                <li>Ship: <% if @captain.ship_id %>
+                            <% @ship = @captain.ship %>
+                            <% if @ship.ship_name %>
+                            <%= @ship.ship_name %>
+                            <% else %>Nameless
+                            <% end %>
+                        <% else %>None
+                        <% end %></p>
+                <li><a href="/captains/<%= @captain.id %>/edit">Edit</a></li>
+                <li><form action="/captains/<%= @captain.id %>/delete" method="POST"><input type="submit" value="Delete"></form></li>
+                <li><a href="/captains">Return</a></li>
+            </ul>
+        </li>
+    </ul>
+</div>

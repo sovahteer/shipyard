@@ -1,20 +1,16 @@
 <h2>Edit <%= @captain.full_name %></h2>
 <form method="POST" action="/captains/<%= @captain.id %>">
-  <div class="form-wrapper">
-    
-    <div class="form-el">
-      <label for="first_name">First Name:</label>
-      <input type="text" name="first_name" id="first_name" value="<%= @captain.first_name %>"/>
-    </div>
-
-    <div class="form-el">
-      <label for="last_name">Last Name:</label>
-      <input type="text" name="last_name" id="last_name" value="<%= @captain.last_name%>"/>
-    </div>
-    </br>
-    <div class="form-el">
-      <input type="submit" value="Apply Changes"/>
-    </div>
-
+  <div class="captain-edit">
+    <ul class="cards">
+      <li class ="card">    
+        <ul>  
+          <li><label for="first_name">First Name:</label>
+            <input type="text" name="first_name" id="first_name" value="<%= @captain.first_name %>"/></li>
+          <li><label for="last_name">Last Name:</label>
+            <input type="text" name="last_name" id="last_name" value="<%= @captain.last_name%>"/><li>
+          <li><input type="submit" value="Apply Changes"/></li>
+        </ul>
+      </li>
+    </ul>
   </div>
 </form>
