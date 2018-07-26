@@ -1,4 +1,12 @@
 <h2><%= @captain.full_name%></h2>
+<p>Ship: <% if @captain.ship_id %>
+            <% @ship = @captain.ship %>
+            <% if @ship.ship_name %>
+            <%= @ship.ship_name %>
+            <% else %>Nameless
+            <% end %>
+        <% else %>None
+        <% end %></p>
 <a href="/captains/<%= @captain.id %>/edit">Edit</a>
 </br>
 </br>

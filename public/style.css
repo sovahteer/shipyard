@@ -1,0 +1,17 @@
+body  {
+    background-color: #6294a8;
+}
+
+nav h1 {
+    align-content: center;
+}
+
+nav ul {
+    align-content: center;
+    list-style-type: none;
+
+}
+
+search-wrapper {
+    display: inline-block;
+}

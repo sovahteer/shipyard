@@ -7,6 +7,7 @@ class Captain
     attr_reader :id
 
     def initialize (options)
+        puts "id = #{options['id']}"
         @id = options['id'].to_i 
         @first_name = options['first_name']
         @last_name = options['last_name']
@@ -22,8 +23,20 @@ class Captain
     end
 
     def ship()
-        ship = Ship.find(@ship.id)
+        ship = Ship.find(ship_id)
         return ship
+    end
+
+    def ship_id()
+        puts 'captain.ship'
+        sql = "SELECT id FROM ships WHERE captain_id = ( $1 )" 
+        values = [@id]
+        result = SqlRunner.run(sql,values)
+        if result.ntuples == 0
+            return nil;
+        else
+            return result.first['id'].to_i
+        end
     end
 
     def update()
@@ -46,9 +59,10 @@ class Captain
         captains = map_items(captain_data)
         return captains
     end
+    
     def self.map_items(captain_data)
         return captain_data.map { |captain| Captain.new(captain) }
-      end
+    end
 
     def self.find(id)
         sql = "SELECT * FROM captains

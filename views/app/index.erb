@@ -1,11 +1,5 @@
-<h1>OREK DRIVE YARDS Inc</h1>
-
-<p> <a href="/ships">View All Ships</a></p>
-<p> <a href="/captains">View All Captains</a><p>
-<p> <a href="/crews">View All Crew Members</a><p>
-
+<div class="search-wrapper">
 <form method="POST" action="/">
-<div class="search">
   <p>Search for...</p>
    <input id="query" name="query" type="text" placeholder="Search...">
   <button type="submit">
@@ -25,11 +19,16 @@
     <% end %>
 
     <% for captain in @captains %>
-        <h1><%= captain['first_name']+' '+captain['last_name'] %></h1>
-       <ul>
-          <li><a href="/captains/<%= captain['id'] %>">Show Details</a></li>
-       </ul>
-    <% end %>
+      <h1><%= captain['first_name']+' '+captain['last_name'] %></h1>
+        <% @captain = Captain.find(captain['id']) %>
+      <ul>
+        <% if @captain.ship_id %>
+          <li>Ship: <%= @captain.ship.ship_name %></li>
+        <% end %>
+      </br>
+      <li><a href="/captains/<%= captain['id'] %>">Show Details</a></li>
+      </ul>
+<% end %>
 
     <% for crew in @crews %>
        <% if crew['last_name'] %>

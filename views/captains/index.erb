@@ -1,12 +1,19 @@
-<h1>OREK DRIVE YARDS Inc</h1>
-
 <div id="captain-wrapper">
     <% for captain in @captains %>
 
     <div class="captain">
         <h2><a "href=/captains/<%= captain.id %>"><%= captain.full_name%></a></h2>
+        <p>Ship: <% if captain.ship_id %>
+            <% @ship = captain.ship %>
+            <% if @ship.ship_name %>
+            <%= @ship.ship_name %>
+            <% else %>Nameless
+            <% end %>
+        <% else %>None
+        <% end %></p>
     </div>
-
+    
+    
     <p><a href="/captains/<%= captain.id%>">Show Details</a></p>
     
     <% end %>
